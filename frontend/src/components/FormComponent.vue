@@ -15,10 +15,10 @@
                     <option :value="0">--SELECIONE UMA ÁREA DE INTERESSE--</option>
                 </optgroup>
                 <optgroup>
-                    <option :value="face_pass">Credenciamento seguro</option>
-                    <option :value="link_ai">Fazer conexões inteligentes</option>
-                    <option :value="fit_score">Recrutamente com IA para alinhamento cultural</option>
-                    <option :value="hub_x">Ecossistema digital para eventos</option>
+                    <option :value="1">Credenciamento seguro</option>
+                    <option :value="2">Fazer conexões inteligentes</option>
+                    <option :value="3">Recrutamente com IA para alinhamento cultural</option>
+                    <option :value="4">Ecossistema digital para eventos</option>
                 </optgroup>
             </select>
         </div>
@@ -29,32 +29,32 @@
                     <option :value="0">--SELECIONE UM ESTADO--</option>
                 </optgroup>
                 <optgroup>
-                    <option :value="sp">São Paulo</option>
-                    <option :value="rj">Rio de Janeiro</option>
-                    <option :value="mg">Minas Gerais</option>
-                    <option :value="es">Espírito Santo</option>
-                    <option :value="ba">Bahia</option>
-                    <option :value="rs">Rio Grande do Sul</option>
-                    <option :value="pr">Paraná</option>
-                    <option :value="sc">Santa Catarina</option>
-                    <option :value="go">Goiás</option>
-                    <option :value="mt">Mato Grosso</option>
-                    <option :value="ms">Mato Grosso do Sul</option>
-                    <option :value="to">Tocantins</option>
-                    <option :value="pa">Pará</option>
-                    <option :value="am">Amazonas</option>
-                    <option :value="rr">Roraima</option>
-                    <option :value="ap">Amapá</option>
-                    <option :value="ac">Acre</option>
-                    <option :value="ro">Rondônia</option>
-                    <option :value="ma">Maranhão</option>
-                    <option :value="pi">Piauí</option>
-                    <option :value="ce">Ceará</option>
-                    <option :value="rn">Rio Grande do Norte</option>
-                    <option :value="pe">Pernambuco</option>
-                    <option :value="pb">Paraíba</option>
-                    <option :value="al">Alagoas</option>
-                    <option :value="se">Sergipe</option>
+                    <option :value="01">São Paulo</option>
+                    <option :value="02">Rio de Janeiro</option>
+                    <option :value="03">Minas Gerais</option>
+                    <option :value="04">Espírito Santo</option>
+                    <option :value="05">Bahia</option>
+                    <option :value="06">Rio Grande do Sul</option>
+                    <option :value="07">Paraná</option>
+                    <option :value="08">Santa Catarina</option>
+                    <option :value="09">Goiás</option>
+                    <option :value="10">Mato Grosso</option>
+                    <option :value="11">Mato Grosso do Sul</option>
+                    <option :value="12">Tocantins</option>
+                    <option :value="13">Pará</option>
+                    <option :value="14">Amazonas</option>
+                    <option :value="15">Roraima</option>
+                    <option :value="16">Amapá</option>
+                    <option :value="17">Acre</option>
+                    <option :value="18">Rondônia</option>
+                    <option :value="19">Maranhão</option>
+                    <option :value="20">Piauí</option>
+                    <option :value="21">Ceará</option>
+                    <option :value="22">Rio Grande do Norte</option>
+                    <option :value="23">Pernambuco</option>
+                    <option :value="24">Paraíba</option>
+                    <option :value="25">Alagoas</option>
+                    <option :value="26">Sergipe</option>
                 </optgroup>
             </select>
         </div>
