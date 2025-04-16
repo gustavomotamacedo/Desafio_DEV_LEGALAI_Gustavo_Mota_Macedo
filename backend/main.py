@@ -29,11 +29,24 @@ def get_solucao(id):
                 jsonify(solucao),200
             )
 
+@app.route('/api/solucao', methods=['POST'])
+def get_solucao():
+    user = tb_usuarios[tb_usuarios.__len__() - 1]
+    for solucao in tb_solucoes:
+        if solucao['id'] == user['interesse_id']:
+            return make_response(
+                jsonify(solucao),200
+            )
+
 # === FUNCOES DE USUARIOS ===
 
 @app.route('/api/usuarios', methods=['POST'])    
 def set_usuario():
     user = request.json
+    if user == None:
+        return make_response(
+            jsonify({'message': 'Não foi possível cadastrar o usuário'}), 400
+        )
     tb_usuarios.append(user)
     return make_response(
         jsonify(user), 200

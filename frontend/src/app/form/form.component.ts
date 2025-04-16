@@ -9,20 +9,41 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 })export class FormComponent {
 
-  name = new FormControl('');
-  soluctionId = new FormControl("Selecione uma opção");
-  locationId = new FormControl("Selecione uma opção");
+  APIURL = "http://127.0.0.1:5000/api";
+  nome = new FormControl('');
+  interesse_id = new FormControl("Selecione uma opção");
+  estado_id = new FormControl("Selecione uma opção");
   formElement: HTMLFormElement = document.createElement('form');
-  formData: object = {};
+  data: object = {};
 
   constructor() {
     this.formElement.addEventListener('submit', this.getSolution.bind(this));
   }
 
-  getSolution($event: any) {
+  async getSolution($event: any) {
     $event.preventDefault();
 
-    this.formData = new FormData(this.formElement);
-    console.log(this.formData);
+    const formData: FormData = new FormData(this.formElement);
+
+    let user = {
+      "name": this.nome.value,
+      "soluctionId": this.interesse_id.value,
+      "locationId": this.estado_id.value
+    }
+
+    await fetch(this.APIURL+"/usuarios", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    }).then(res => {
+      console.log(res);
+    }).then(data => {
+      console.log(data);
+    }).catch(error => {
+      console.log(error);
+    });
+
   }
 }
