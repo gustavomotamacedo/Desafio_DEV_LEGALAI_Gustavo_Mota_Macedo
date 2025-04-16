@@ -1,11 +1,11 @@
-<form [action]="getConection()" method="post">
+<form>
     <div class="mb-3">
         <label for="name">Nome de usuário</label>
-        <input type="text" class="form-control" id="name" placeholder="Digite seu nome de usuário" />
+        <input type="text" class="form-control" [formControl]="name" id="name" placeholder="Digite seu nome de usuário" />
     </div>
     <div class="mb-3">
         <label for="interest">Area de interesse</label>
-        <select class="form-select" name="interest" id="interest">
+        <select class="form-select" [formControl]="soluctionId" name="interest" id="interest">
             <option selected>Selecione uma opção</option>
             <option value="1">Sistema de reconhecimento facial</option>
             <option value="2">Matchmaking inteligente com propósito</option>
@@ -19,7 +19,7 @@
     </div>
     <div class="mb-3">
         <label for="location">Localização</label>
-        <select class="form-select" name="location" id="location">
+        <select class="form-select" [formControl]="locationId" name="location" id="location">
             <option selected>Selecione uma opção</option>
             <option :value="01">Acre</option>
             <option :value="02">Alagoas</option>
