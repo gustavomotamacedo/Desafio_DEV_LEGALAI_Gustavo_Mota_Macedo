@@ -1,7 +1,13 @@
 from flask import Flask, make_response, jsonify, request
 from dataset import tb_usuarios, tb_solucoes
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+# Habilita a CORS para todas as origens
+CORS(app)
+
+app.config['JSON_SORT_KEYS'] = False
 
 @app.route('/api')
 def index():
