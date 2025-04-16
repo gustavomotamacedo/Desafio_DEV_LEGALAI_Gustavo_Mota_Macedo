@@ -1,6 +1,5 @@
 tb_usuarios = [
 {
-    'id': 1,
     'nome': 'João',
     'interesse_id': 1,
     'estado_id': 11
