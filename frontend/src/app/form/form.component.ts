@@ -30,8 +30,8 @@ import { Router } from '@angular/router';
 
     let dataUser = {
       "name": this.nome.value,
-      "soluctionId": this.interesse_id.value,
-      "locationId": this.estado_id.value
+      "interesse_id": this.interesse_id.value,
+      "estado_id": this.estado_id.value
     }
 
     console.log(dataUser);

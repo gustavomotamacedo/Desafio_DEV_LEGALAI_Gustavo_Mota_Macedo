@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-solution',
-  imports: [],
+  imports: [HttpClientModule],
   templateUrl: './solution.component.html',
   styleUrl: './solution.component.scss'
 })
@@ -10,6 +11,8 @@ export class SolutionComponent {
 
   APIURL: string = 'http://127.0.0.1:5000/api/solucao';
   solution: any;
+
+  httpClient: HttpClient = inject(HttpClient);
 
   constructor() { 
     setTimeout(() => {
@@ -19,16 +22,10 @@ export class SolutionComponent {
   }
 
   async getSolution() {
-    this.solution = await fetch(this.APIURL, {
-      method: 'GET'
-    }).then(res => {
-      console.log(res);
-    }).then(data => {
-      console.log(data);
-    }).catch(error => {
-      console.log(error);
-    });
 
-    console.log(this.solution.data);
+    this.httpClient.get(this.APIURL).subscribe(data => {
+      console.log(data);
+    });
+    
   }
 }

@@ -31,7 +31,7 @@ def get_solucao(id):
 
 @app.route('/api/solucao', methods=['GET'])
 def get_solucao_por_interesse():
-    user = tb_usuarios[tb_usuarios.__len__()-1]
+    user = tb_usuarios[-1]
     for solucao in tb_solucoes:
         if solucao['id'] == user['interesse_id']:
             return make_response(
