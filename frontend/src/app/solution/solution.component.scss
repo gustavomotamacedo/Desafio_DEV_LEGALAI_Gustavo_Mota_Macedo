@@ -39,6 +39,35 @@
     }
 }
 
+.button-container {
+    display: flex;
+    width: 100vw;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        background-color: #697179;
+
+        svg {
+            margin-right: .3rem;
+        }
+
+        transition-duration: .3s;
+
+        &:hover {
+            background-color: #494e53;
+        }
+    }
+}
+
 @media (max-width: 820px) { 
     .container {
         flex-direction: column;

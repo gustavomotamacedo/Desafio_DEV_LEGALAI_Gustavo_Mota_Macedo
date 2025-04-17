@@ -60,4 +60,8 @@ export class SolutionComponent {
       }
     }
   }
+
+  goBack() {
+    window.history.back();
+  }
 }
