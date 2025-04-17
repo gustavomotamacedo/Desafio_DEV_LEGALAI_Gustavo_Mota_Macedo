@@ -60,4 +60,5 @@ def get_usuarios():
         jsonify(tb_usuarios), 200
     )
 
-app.run()
+def create_app():
+    app.run()
