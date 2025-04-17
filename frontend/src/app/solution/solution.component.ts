@@ -9,10 +9,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class SolutionComponent {
 
-  APIURL: string = 'http://127.0.0.1:5000/api/solucao';
+  APIURL: string = 'http://127.0.0.1:5000/api';
   solution: any;
-  solucaoNome: string = '';
-  solucaoDesc: string = '';
+  solutions: any;
+  solucaoNome: string[] = [];
+  solucaoDesc: string[] = [];
 
   httpClient: HttpClient = inject(HttpClient);
 
@@ -25,9 +26,14 @@ export class SolutionComponent {
 
   async getSolution() {
 
-    this.httpClient.get(this.APIURL).subscribe(data => {
+    this.httpClient.get(this.APIURL + "/solucao").subscribe(data => {
       console.log(data);
       this.solution = data;
+    });
+
+    this.httpClient.get(this.APIURL + "/solucoes").subscribe(data => {
+      console.log(data);
+      this.solutions = data;
     });
 
     setTimeout(() => {
@@ -36,7 +42,17 @@ export class SolutionComponent {
   }
 
   updateValues() {
-    this.solucaoNome = this.solution?.nome;
-    this.solucaoDesc = this.solution?.descricao;
+    this.solucaoNome = [];
+    this.solucaoDesc = [];
+
+    this.solucaoNome.push(this.solution.nome);
+    this.solucaoDesc.push(this.solution.descricao);
+    for (let i = 0; i < this.solutions.length; i++) {
+      if (this.solucaoNome.includes(this.solutions[i].nome)) {
+        continue;
+      }
+      this.solucaoNome.push(this.solutions[i].nome);
+      this.solucaoDesc.push(this.solutions[i].descricao);
+    }
   }
 }
