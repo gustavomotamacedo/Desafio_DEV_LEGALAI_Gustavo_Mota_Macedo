@@ -37,13 +37,12 @@ export class SolutionComponent {
 
     setTimeout(() => {
       this.updateValues();
-    }, 325);
+    }, 500);
   }
 
   updateValues() {
     this.orderSolutions = [];
 
-    this.orderSolutions.push(this.solution);
     for (let i = 0; i < this.solutions.length; i++) {
       if (this.solution.nome == this.solutions[i].nome) {
         continue;
@@ -51,5 +50,14 @@ export class SolutionComponent {
       this.orderSolutions.push(this.solutions[i]);
     }
     this.orderSolutions.pop();
+    for (let i = 0; i < this.orderSolutions.length; i++) {
+      let aux = this.orderSolutions[i];
+      if (i == 1) {
+        this.orderSolutions[i] = this.solution;
+        this.orderSolutions.push(aux);
+      } else {
+        continue;
+      }
+    }
   }
 }
