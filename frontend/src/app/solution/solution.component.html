@@ -1,10 +1,18 @@
 <div (load)="updateValues()"
     class="container container-fluid d-flex flex-row mb-3 justify-content-center align-items-center">
     @for (solution of orderSolutions; track $index) {
-        <div class="card m-2" style="width: 18rem">
+        <div class="card m-2">
             <div class="card-body">
-                <h1 class="card-title">{{ solution?.nome }}</h1>
-                <h6 class="card-subtitle mb-2 text-body-secondary">😍 98%</h6>
+                @if ($index == 1) {
+                    <h1 class="card-title best-solution">{{ solution?.nome }}</h1>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">😍 98%</h6>
+                } @else if ($index == 0) {
+                    <h1 class="card-title">{{ solution?.nome }}</h1>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">😎 63%</h6>
+                } @else {
+                    <h1 class="card-title">{{ solution?.nome }}</h1>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">😁 36%</h6>
+                }
                 <p class="card-text">{{ solution?.descricao }}</p>
                 <a href="https://operadora.legal/" target="_blank" class="card-link">Link Legal</a>
             </div>

@@ -1,8 +1,35 @@
 .container {
+    height: 50vh;
     margin-top: 8rem;
     font-size: 1.6rem;
 
     p {
         font-size: 1.2rem;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        width: 35rem;
+        height: 100%;
+        padding: 2rem;
+
+        align-items: center;
+        justify-self: center;
+
+        &-text {
+            text-align: justify;
+        }
+
+        .best-solution {
+            color: #020CBC;
+            font-weight: 900;
+            letter-spacing: 0.25rem;
+        }
+
+        transition-duration: .3s;
+        &:hover {
+            transform: scale(1.05);
+        }
     }
 }
