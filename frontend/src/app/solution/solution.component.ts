@@ -30,6 +30,12 @@ export class SolutionComponent {
       this.solution = data;
     });
 
+    setTimeout(() => {
+      this.updateValues();
+    }, 325);
+  }
+
+  updateValues() {
     this.solucaoNome = this.solution?.nome;
     this.solucaoDesc = this.solution?.descricao;
   }
