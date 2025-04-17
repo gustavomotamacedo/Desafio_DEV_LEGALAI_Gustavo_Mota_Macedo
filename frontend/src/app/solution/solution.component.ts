@@ -29,6 +29,8 @@ export class SolutionComponent {
       console.log(data);
       this.solution = data;
     });
-    
+
+    this.solucaoNome = this.solution?.nome;
+    this.solucaoDesc = this.solution?.descricao;
   }
 }
