@@ -12,8 +12,7 @@ export class SolutionComponent {
   APIURL: string = 'http://127.0.0.1:5000/api';
   solution: any;
   solutions: any;
-  solucaoNome: string[] = [];
-  solucaoDesc: string[] = [];
+  orderSolutions: any;	
 
   httpClient: HttpClient = inject(HttpClient);
 
@@ -42,17 +41,15 @@ export class SolutionComponent {
   }
 
   updateValues() {
-    this.solucaoNome = [];
-    this.solucaoDesc = [];
+    this.orderSolutions = [];
 
-    this.solucaoNome.push(this.solution.nome);
-    this.solucaoDesc.push(this.solution.descricao);
+    this.orderSolutions.push(this.solution);
     for (let i = 0; i < this.solutions.length; i++) {
-      if (this.solucaoNome.includes(this.solutions[i].nome)) {
+      if (this.solution.nome == this.solutions[i].nome) {
         continue;
       }
-      this.solucaoNome.push(this.solutions[i].nome);
-      this.solucaoDesc.push(this.solutions[i].descricao);
+      this.orderSolutions.push(this.solutions[i]);
     }
+    this.orderSolutions.pop();
   }
 }

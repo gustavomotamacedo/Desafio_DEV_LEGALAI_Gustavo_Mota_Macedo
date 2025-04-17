@@ -1,11 +1,20 @@
 <div (load)="updateValues()"
-    class="container container-fluid d-flex flex-column mb-3 justify-content-center align-items-center">
-    <div class="card" style="width: 18rem">
-        <div class="card-body">
-            <h1 class="card-title">{{ this.solucaoNome }}</h1>
-            <h6 class="card-subtitle mb-2 text-body-secondary">😍 98%</h6>
-            <p class="card-text">{{ this.solucaoDesc }}</p>
-            <a href="https://operadora.legal/" target="_blank" class="card-link">Link Legal</a>
+    class="container container-fluid d-flex flex-row mb-3 justify-content-center align-items-center">
+    @for (solution of orderSolutions; track $index) {
+        <div class="card m-2" style="width: 18rem">
+            <div class="card-body">
+                <h1 class="card-title">{{ solution?.nome }}</h1>
+                <h6 class="card-subtitle mb-2 text-body-secondary">😍 98%</h6>
+                <p class="card-text">{{ solution?.descricao }}</p>
+                <a href="https://operadora.legal/" target="_blank" class="card-link">Link Legal</a>
+            </div>
         </div>
-    </div>
+    } @empty {
+        <div class="card" style="width: 18rem">
+            <div class="card-body">
+                <h1 class="card-title">Encontrando a melhor solução para você!</h1>
+            </div>
+        </div>
+    }
+
 </div>
