@@ -17,6 +17,8 @@
         align-items: center;
         justify-self: center;
 
+        transition-duration: .3s;
+        
         &-text {
             text-align: justify;
         }
@@ -27,9 +29,11 @@
             letter-spacing: 0.25rem;
         }
 
-        transition-duration: .3s;
         &:hover {
             transform: scale(1.05);
+            -webkit-box-shadow: 10px 10px 30px 5px rgba(0,0,0,0.25);
+            -moz-box-shadow: 10px 10px 30px 5px rgba(0,0,0,0.25);
+            box-shadow: 10px 10px 30px 5px rgba(0,0,0,0.25);
         }
     }
 }
