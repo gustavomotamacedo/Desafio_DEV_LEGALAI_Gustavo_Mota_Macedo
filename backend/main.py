@@ -29,9 +29,9 @@ def get_solucao(id):
                 jsonify(solucao),200
             )
 
-@app.route('/api/solucao', methods=['POST'])
-def get_solucao():
-    user = tb_usuarios[tb_usuarios.__len__() - 1]
+@app.route('/api/solucao', methods=['GET'])
+def get_solucao_por_interesse():
+    user = tb_usuarios[tb_usuarios.__len__()-1]
     for solucao in tb_solucoes:
         if solucao['id'] == user['interesse_id']:
             return make_response(

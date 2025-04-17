@@ -1,49 +1,45 @@
-import { Component } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, HttpClientModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss'
-
 })export class FormComponent {
 
-  APIURL = "http://127.0.0.1:5000/api";
+  router: Router = inject(Router);
+  httpClient: HttpClient = inject(HttpClient);
+  APIURL: string = "http://127.0.0.1:5000/api";
   nome = new FormControl('');
   interesse_id = new FormControl("Selecione uma opção");
   estado_id = new FormControl("Selecione uma opção");
   formElement: HTMLFormElement = document.createElement('form');
-  data: object = {};
 
   constructor() {
-    this.formElement.addEventListener('submit', this.getSolution.bind(this));
+    this.formElement.addEventListener('submit', this.setUserAndGoToSolution.bind(this));
   }
 
-  async getSolution($event: any) {
+  async setUserAndGoToSolution($event: any) {
     $event.preventDefault();
 
     const formData: FormData = new FormData(this.formElement);
 
-    let user = {
+    let dataUser = {
       "name": this.nome.value,
       "soluctionId": this.interesse_id.value,
       "locationId": this.estado_id.value
     }
 
-    await fetch(this.APIURL+"/usuarios", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    }).then(res => {
-      console.log(res);
-    }).then(data => {
-      console.log(data);
-    }).catch(error => {
-      console.log(error);
-    });
+    console.log(dataUser);
 
+    this.httpClient.post(this.APIURL+"/usuarios", dataUser).subscribe((response: any) => {
+      console.log(response);
+    }); 
+
+    this.router.navigate(['/solution']);
   }
 }
