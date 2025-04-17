@@ -54,3 +54,27 @@ $ waitress-serve --host 127.0.0.1 app:app
 ---
 
 > A execução do backend e do frontend devem ser feitas em terminais distintos e em paralelo na mesma máquina.
+
+---
+
+# LINKS IMPORTANTES
+
+## APLICAÇÃO
+
+https://desafio-legalai-frontend.vercel.app/
+
+## API
+
+https://desafio-dev-legalai-gustavo-mota-macedo.onrender.com/api
+
+### Endpoints da API
+
+/solucoes (GET): retorna uma lista com todas as soluções possíveis
+
+/solucoes/{int} (GET): retorna uma solução a partir de um identificador
+
+/solucao (GET): retorna a melhor solução para o último usuário cadastrado
+
+/usuarios (POST): cadastra um usuário a partid de um JSON no body
+
+/usuarios (GET): retorna a lista de usuarios cadastrados
