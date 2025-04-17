@@ -29,7 +29,7 @@ import { Router } from '@angular/router';
     const formData: FormData = new FormData(this.formElement);
 
     let dataUser = {
-      "name": this.nome.value,
+      "nome": this.nome.value,
       "interesse_id": this.interesse_id.value,
       "estado_id": this.estado_id.value
     }

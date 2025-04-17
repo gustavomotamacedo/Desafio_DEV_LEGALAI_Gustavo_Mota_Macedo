@@ -31,9 +31,11 @@ def get_solucao(id):
 
 @app.route('/api/solucao', methods=['GET'])
 def get_solucao_por_interesse():
+    from dataset import tb_usuarios
     user = tb_usuarios[-1]
     for solucao in tb_solucoes:
-        if solucao['id'] == user['interesse_id']:
+        if int(solucao['id']) == int(user['interesse_id']):
+            print(solucao)
             return make_response(
                 jsonify(solucao),200
             )
