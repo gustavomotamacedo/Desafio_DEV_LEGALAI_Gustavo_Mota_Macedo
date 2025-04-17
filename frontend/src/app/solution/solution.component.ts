@@ -11,6 +11,8 @@ export class SolutionComponent {
 
   APIURL: string = 'http://127.0.0.1:5000/api/solucao';
   solution: any;
+  solucaoNome: string = '';
+  solucaoDesc: string = '';
 
   httpClient: HttpClient = inject(HttpClient);
 
@@ -25,6 +27,7 @@ export class SolutionComponent {
 
     this.httpClient.get(this.APIURL).subscribe(data => {
       console.log(data);
+      this.solution = data;
     });
     
   }
