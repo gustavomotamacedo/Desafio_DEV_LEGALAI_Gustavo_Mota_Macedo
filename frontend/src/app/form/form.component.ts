@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
   router: Router = inject(Router);
   httpClient: HttpClient = inject(HttpClient);
-  APIURL: string = "http://127.0.0.1:5000/api";
+  APIURL: string = "https://desafio-dev-legalai-gustavo-mota-macedo.onrender.com/api";
   nome = new FormControl('');
   interesse_id = new FormControl("Selecione uma opção");
   estado_id = new FormControl("Selecione uma opção");

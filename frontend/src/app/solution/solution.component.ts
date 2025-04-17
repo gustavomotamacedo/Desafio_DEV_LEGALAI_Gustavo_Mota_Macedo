@@ -9,7 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class SolutionComponent {
 
-  APIURL: string = 'http://127.0.0.1:5000/api';
+  APIURL: string = 'https://desafio-dev-legalai-gustavo-mota-macedo.onrender.com/api';
   solution: any;
   solutions: any;
   orderSolutions: any;	
